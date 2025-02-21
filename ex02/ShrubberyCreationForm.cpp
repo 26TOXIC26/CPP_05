@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:29:00 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/18 15:43:46 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:12:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	if (executor.getGrade() > getGradeToExecute())
+	if (executor.getGrade() > getGradeToExecute() || !getSigned())
 		throw AForm::GradeTooLowException();
 	std::ofstream file;
 	std::string filename = _target + "_shrubbery";

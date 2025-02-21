@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:08:31 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/17 15:18:36 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:01:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int main ()
 {
-	Bureaucrat b("abdelilah", 15);
+	Bureaucrat b("abdelilah", -151);
 	std::cout << b;
 	try
 	{
-		b.decrementGrade();
+		b.incrementGrade();
 	}
 	catch (std::exception &e)
 	{

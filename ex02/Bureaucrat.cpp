@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 13:44:09 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/18 12:40:45 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:05:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,18 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-	_grade = grade;
+	if (grade < 1)
+	{
+		_grade = 1;
+		std::cout << "Grade is too high so it will be set to 1" << std::endl;
+	}
+	else if (grade > 150)
+	{
+		_grade = 150;
+		std::cout << "Grade is too low so it will be set to 150" << std::endl;
+	}
+	else
+		_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name)
@@ -50,6 +61,8 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
+	if (_grade == 1)
+		throw Bureaucrat::GradeTooHighException();
 	_grade--;
 }
 

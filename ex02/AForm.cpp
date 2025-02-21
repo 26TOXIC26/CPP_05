@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:24:07 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/18 15:41:43 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:14:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int AForm::getGradeToExecute() const
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > _grade_to_sign)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	_signed = true;
 }
 
