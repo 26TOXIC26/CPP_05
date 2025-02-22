@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:30:25 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/22 00:31:21 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/22 05:02:45 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
+
 class AForm
 {
 	private:
@@ -41,6 +42,7 @@ class AForm
 		int			getGradeToExecute() const;
 		void		beSigned(Bureaucrat &bureaucrat);
 		virtual void execute(Bureaucrat const &executor) const = 0;
+		static AForm *CreateForm(std::string formName, std::string target);
 
 		class GradeTooHighException : public std::exception
 		{

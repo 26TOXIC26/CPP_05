@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 21:13:18 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/21 21:37:51 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/22 05:27:14 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,13 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		std::cout << _target << " has been robotomized successfully" << std::endl;
 	else
 		std::cout << "Robotomization failed" << std::endl;
+}
+
+AForm *RobotomyRequestForm::CreateForm(std::string target, AForm *form, std::string name)
+{
+	if (name == "RobotomyRequestForm" && form == NULL)
+		return (new RobotomyRequestForm(target));
+	if (form != NULL)
+		return (form);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:08:31 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/22 04:11:55 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/22 05:30:52 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,56 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 
 int main ()
 {
-	Bureaucrat b1("b1", 1);
-	Bureaucrat b2("b2", 1);
-	Bureaucrat b3("b3", 1);
-	ShrubberyCreationForm s1("s1");
-	RobotomyRequestForm s2("s2");
-	PresidentialPardonForm s3("s3");
+	Intern intern;
+	Bureaucrat bureaucrat("bureaucrat", 1);
+	AForm *form;
+	AForm *form2;
+	AForm *form3;
 
-	std::cout << b1;
-	std::cout << b2;
+	try
+	{
 
-	s1.beSigned(b1);
-	b1.signForm(s1.getSigned(), s1.getName());
-	s2.beSigned(b2);
-	b2.signForm(s2.getSigned(), s2.getName());
-	s3.beSigned(b3);
-	b3.signForm(s3.getSigned(), s3.getName());
-	// b2.signForm(s1.getSigned(), s1.getName());
+		form = intern.makeForm("ShrubberyCreationForm", "target");
+		form->beSigned(bureaucrat);
+		bureaucrat.executeForm(*form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	try {
-		b1.executeForm(s1);
+	delete form;
+
+	try
+	{
+		form2 = intern.makeForm("RobotomyRequestForm", "target");
+		form2->beSigned(bureaucrat);
+		bureaucrat.executeForm(*form2);
 	}
-	catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
 	}
-	try {
-		b2.executeForm(s2);
+
+	delete form2;
+
+	try
+	{
+		form3 = intern.makeForm("PresidentialPardonForm", "target");
+		form3->beSigned(bureaucrat);
+		bureaucrat.executeForm(*form3);
 	}
-	catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
 	}
-	try {
-		b3.executeForm(s3);
-	}
-	catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
-	}
+
+	delete form3;
+
 	return (0);
 }

@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 14:56:54 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/21 21:29:02 by amousaid         ###   ########.fr       */
+/*   Created: 2025/02/18 14:56:49 by amousaid          #+#    #+#             */
+/*   Updated: 2025/02/22 05:03:50 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+# ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class AForm;
+class PresidentialPardonForm : public AForm
 {
 	private:
 		std::string _target;
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm(const RobotomyRequestForm &other);
-		~RobotomyRequestForm();
-		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(const PresidentialPardonForm &other);
+		~PresidentialPardonForm();
+		static AForm *CreateForm(std::string target, AForm *form, std::string name);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
 		void execute(Bureaucrat const &executor) const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:34:23 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/22 03:31:32 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/22 05:27:57 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,13 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 	if (executor.getGrade() > getGradeToExecute() || !getSigned())
 		throw AForm::GradeTooLowException();
 	std::cout << _target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+}
+
+AForm *PresidentialPardonForm::CreateForm(std::string target, AForm *form, std::string name)
+{
+	if (name == "PresidentialPardonForm" && form == NULL)
+		return (new PresidentialPardonForm(target));
+	if (form != NULL)
+		return (form);
+	return (NULL);
 }

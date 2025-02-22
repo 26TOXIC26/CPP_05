@@ -6,11 +6,14 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:24:07 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/22 03:38:27 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/22 05:03:06 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 AForm::AForm() : _name("default"), _grade_to_sign(150), _grade_to_execute(150)
 {
@@ -83,4 +86,15 @@ std::ostream &operator<<(std::ostream &out, AForm &form)
 	out << "Grade to sign: " << form.getGradeToSign() << std::endl;
 	out << "Grade to execute: " << form.getGradeToExecute() << std::endl;
 	return (out);
+}
+
+AForm *AForm::CreateForm(std::string formName, std::string target)
+{
+	AForm *form;
+
+	form = NULL;
+	form = ShrubberyCreationForm::CreateForm(target, form, formName);
+	form = RobotomyRequestForm::CreateForm(target, form, formName);
+	form = PresidentialPardonForm::CreateForm(target, form, formName);
+	return (form);
 }

@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 14:56:54 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/21 21:29:02 by amousaid         ###   ########.fr       */
+/*   Created: 2025/02/22 04:17:07 by amousaid          #+#    #+#             */
+/*   Updated: 2025/02/22 05:02:18 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class AForm;
+class Intern
 {
-	private:
-		std::string _target;
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm(const RobotomyRequestForm &other);
-		~RobotomyRequestForm();
-		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
-		void execute(Bureaucrat const &executor) const;
+		Intern();
+		Intern(const Intern &other);
+		Intern &operator=(const Intern &other);
+		~Intern();
+		static AForm *makeForm(std::string formName, std::string target);
+		class FormNotFoundException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
 };
 
 #endif
