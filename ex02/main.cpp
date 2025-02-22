@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:08:31 by amousaid          #+#    #+#             */
-/*   Updated: 2025/02/22 04:11:55 by amousaid         ###   ########.fr       */
+/*   Updated: 2025/02/22 23:07:16 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 int main ()
 {
-	Bureaucrat b1("b1", 1);
-	Bureaucrat b2("b2", 1);
-	Bureaucrat b3("b3", 1);
+	Bureaucrat b1("b1", 137);
+	Bureaucrat b2("b2", 45);
+	Bureaucrat b3("b3", 5);
 	ShrubberyCreationForm s1("s1");
 	RobotomyRequestForm s2("s2");
 	PresidentialPardonForm s3("s3");
@@ -35,7 +35,6 @@ int main ()
 	b2.signForm(s2.getSigned(), s2.getName());
 	s3.beSigned(b3);
 	b3.signForm(s3.getSigned(), s3.getName());
-	// b2.signForm(s1.getSigned(), s1.getName());
 
 	try {
 		b1.executeForm(s1);

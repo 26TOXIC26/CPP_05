@@ -1,4 +1,4 @@
-NAME = Aform
+NAME = Intern
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJ = $(SRCS:.cpp=.o)
 CXX = c++
